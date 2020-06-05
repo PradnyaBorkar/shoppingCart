@@ -1,0 +1,42 @@
+.DS_Store
+target/
+build/
+.gradle/
+.out
+.out/
+
+# Java
+
+*.class
+.mtj.tmp/
+*.jar
+*.nar
+*.war
+*.ear
+hs_err_pid*
+
+# Eclipse / STS
+
+.checkstyle
+.classpath
+.factorypath
+.pmd
+.pmdruleset.xml
+.project
+.settings/
+.springBeans
+.eclipse-*
+
+# Intellij
+
+.idea/
+/out/
+.idea_modules/
+
+# Binary files
+/bin/
+
+# Log files
+/logs/
+*.log
+*.iml
