@@ -1,0 +1,39 @@
+import groovy.json.JsonOutput
+
+def generatedResourcesDir = file("${buildDir}/generated-resources/main")
+
+
+sourceSets {
+    main {
+        output.dir(generatedResourcesDir, builtBy: ["generateVersionJson", "generateContactJson"])
+    }
+}
+
+task makeGeneratedResourcesDir() {
+    doLast {
+        generatedResourcesDir.mkdirs()
+    }
+}
+
+task generateVersionJson(dependsOn: "makeGeneratedResourcesDir") {
+    doLast {
+        new File(generatedResourcesDir, "version.json").text =
+                JsonOutput.toJson(["revision": System.getenv("GIT_REVISION"), "build": System.getenv("BUILD_VERSION")])
+    }
+}
+
+task generateContactJson(dependsOn: "makeGeneratedResourcesDir") {
+    doLast {
+        new File(generatedResourcesDir, "contact.json").text =
+                JsonOutput.toJson(["contact": ["email": rootProject.file("CONTACT.txt").text.trim()]])
+    }
+}
+
+task deploymentTests(type: Test) {
+    include 'deploymenttest/**/*'
+
+    testLogging {
+        exceptionFormat = 'full'
+        events "standardError", "standardOut"
+    }
+}

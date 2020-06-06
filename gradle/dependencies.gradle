@@ -1,0 +1,208 @@
+ext.gradleVersion = "5.4"
+ext.hamcrestVersion = "1.3"
+ext.httpVersion = "4.5.3"
+ext.http4kVersion = "3.37.0"
+ext.jacksonVersion = "2.9.9"
+ext.jettyVersion = "9.4.18.v20190429"
+ext.jmockVersion = "2.8.2"
+ext.jvmVersion = "1.8"
+ext.slf4jVersion = "1.7.25"
+ext.kotlinVersion = "1.3.31"
+ext.pwgIntegrationSchemaVersion = "4.0.11"
+
+ext.libraries = [
+        "cache2k"                 : "org.cache2k:cache2k-all:1.0.2.Final",
+        "commons-lang"            : "org.apache.commons:commons-lang3:3.4",
+        "commons-net"             : "commons-net:commons-net:3.6",
+        "commons-fileupload"      : "commons-fileupload:commons-fileupload:1.3.3",
+        "jdom"                     : "org.jdom:jdom2:2.0.6",
+        "fileupload"              : "commons-fileupload:commons-fileupload:1.3.2",
+        "flyway"                  : "org.flywaydb:flyway-core:5.0.6",
+        "guava"                   : "com.google.guava:guava:25.0-jre",
+        "hamcrest-core"           : "org.hamcrest:hamcrest-core:${hamcrestVersion}",
+        "hamcrest-library"        : "org.hamcrest:hamcrest-library:${hamcrestVersion}",
+        "hamkrest"                : "com.natpryce:hamkrest:1.4.0.0",
+        "hikaricp"                : "com.zaxxer:HikariCP:3.3.0",
+        "http-client"             : "org.apache.httpcomponents:fluent-hc:${httpVersion}",
+        "http-client-test"        : "org.apache.httpcomponents:httpclient:${httpVersion}:tests",
+        "http-mime"               : "org.apache.httpcomponents:httpmime:${httpVersion}",
+        "http4k"                  : "org.http4k:http4k-core:${http4kVersion}",
+        "http4k-client"           : "org.http4k:http4k-client-apache:$http4kVersion",
+        "http4k-jetty"            : "org.http4k:http4k-server-jetty:${http4kVersion}",
+        "http4k-testing-hamkrest" : "org.http4k:http4k-testing-hamkrest:${http4kVersion}",
+        "http4k-multipart"        : "org.http4k:http4k-multipart:${http4kVersion}",
+        "http4k-handlebars"       : "org.http4k:http4k-template-handlebars:${http4kVersion}",
+        "itext"                   : "com.itextpdf:itextpdf:5.5.8",
+        "jackson"                 : "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}",
+        "javamail-api"            : "javax.mail:javax.mail-api:1.5.6",
+        "javamail"                : "com.sun.mail:javax.mail:1.5.6",
+        "javax.json"              : "org.glassfish:javax.json:1.1",
+        "jmock"                   : "org.jmock:jmock:${jmockVersion}",
+        "jmock-junit"             : "org.jmock:jmock-junit4:${jmockVersion}",
+        "jooq"                    : "org.jooq:jooq:3.11.7",
+        "jsoup"                   : "org.jsoup:jsoup:1.10.2",
+        "json-schema-validator"   : "com.github.fge:json-schema-validator:2.2.6",
+        "jsr-305"                 : "com.google.code.findbugs:jsr305:3.0.1",
+        "junit"                   : "junit:junit:4.12",
+        "konfig"                  : "com.natpryce:konfig:1.6.10.0",
+        // Note: Version of Kotlin libraries is defined by `kotlin-gradle` plug-in.
+        "kotlin"                  : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}",
+        "kotlin-argparser"        : "com.xenomachina:kotlin-argparser:2.0.7",
+        "kotlin-reflect"          : "org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}",
+        "kotlinx-coroutines"      : "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1",
+        "kotlinx-html"            : "org.jetbrains.kotlinx:kotlinx-html-jvm:0.6.8",
+        "krouton"                 : "com.natpryce:krouton:2.3.1.2",
+        "logback"                 : "ch.qos.logback:logback-classic:1.2.2",
+        "logback-json"            : "ch.qos.logback.contrib:logback-json-classic:0.1.5",
+        "logback-jackson"         : "ch.qos.logback.contrib:logback-jackson:0.1.5",
+        "logstash-logback-encoder": "net.logstash.logback:logstash-logback-encoder:4.9",
+        "okeydoke"                : "com.oneeyedmen:okeydoke:1.1.0",
+        "opencsv"                  : "com.opencsv:opencsv:4.6",
+        "pdfbox"                  : "org.apache.pdfbox:pdfbox:2.0.12",
+        "ph-css"                  : "com.helger:ph-css:6.0.0",
+        "postgresql"              : "org.postgresql:postgresql:42.2.5",
+        "pwg-integration-schema"  : "com.springernature.ca:pwg-integration-schema:${pwgIntegrationSchemaVersion}",
+        "rabbitmq-client"         : "com.rabbitmq:amqp-client:5.0.0",
+        "redis"                   : "io.lettuce:lettuce-core:5.1.4.RELEASE",
+        "slf4j"                   : "org.slf4j:slf4j-simple:${slf4jVersion}",
+        "slf4j-api"               : "org.slf4j:slf4j-api:${slf4jVersion}",
+        "snodge"                  : "com.natpryce:snodge:3.6.2.0",
+        "subethasmtp"             : "org.subethamail:subethasmtp:3.1.7",
+        "uri-template"            : "com.github.fge:uri-template:0.9",
+        "worktorule"              : "com.natpryce:worktorule:2.0.0",
+        "yaml"                    : "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:${jacksonVersion}",
+        "xmlbuilder"              : "org.redundent:kotlin-xml-builder:1.4",
+]
+
+ext {
+    apacheHttpClient = [
+            libraries["http-client"],
+            libraries["http-mime"],
+            "org.apache.httpcomponents:httpclient:${httpVersion}",
+            "org.apache.httpcomponents:httpcore:4.4.7",
+            "commons-codec:commons-codec:1.10",
+            "commons-logging:commons-logging:1.2"
+    ]
+
+    fileUpload = [
+            libraries["commons-fileupload"],
+            "commons-io:commons-io:2.5"
+    ]
+
+    http4k = [
+            libraries["http4k"],
+            libraries["http4k-client"],
+            libraries["http4k-jetty"],
+            libraries["http4k-multipart"],
+            libraries["krouton"]
+    ]
+
+    jacksonJson = [
+            libraries["jackson"],
+            "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}",
+            "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}"
+    ]
+
+    jacksonYaml = [
+            "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:${jacksonVersion}",
+            "org.yaml:snakeyaml:1.18"
+    ]
+
+    javaMail = [
+            libraries["javamail"],
+            "javax.activation:activation:1.1"
+    ]
+
+    jettyServer = [
+            "org.eclipse.jetty:jetty-server:${jettyVersion}",
+            "org.eclipse.jetty:jetty-http:${jettyVersion}",
+            "org.eclipse.jetty:jetty-io:${jettyVersion}",
+            "org.eclipse.jetty:jetty-util:${jettyVersion}",
+            "org.eclipse.jetty:jetty-security:${jettyVersion}",
+            "org.eclipse.jetty:jetty-servlet:${jettyVersion}",
+            "javax.servlet:javax.servlet-api:4.0.0"
+    ]
+
+    jsonSchema = [
+            "com.github.fge:btf:1.2",
+            "com.github.fge:jackson-coreutils:1.8",
+            "com.github.fge:json-schema-core:1.2.5",
+            "com.github.fge:msg-simple:1.1",
+            "com.github.fge:uri-template:0.9",
+            "com.googlecode.libphonenumber:libphonenumber:7.7.0",
+            "joda-time:joda-time:2.8.1",
+            "org.mozilla:rhino:1.7R4",
+            libraries["javamail-api"],
+            libraries["json-schema-validator"],
+            libraries["pwg-integration-schema"]
+    ]
+
+    kotlin = [
+            libraries["kotlin"]
+    ]
+
+    kotlinReflect = [
+            libraries["kotlin-reflect"]
+    ]
+
+    loggingSupport = [
+            libraries["slf4j-api"],
+            libraries["logback"],
+            libraries["logback-json"],
+            libraries["logback-jackson"],
+            libraries["logstash-logback-encoder"],
+            "ch.qos.logback:logback-core:1.2.2"
+    ]
+
+    junit5 = [
+            "org.junit.jupiter:junit-jupiter-engine:5.4.0",
+            "org.junit.jupiter:junit-jupiter-api:5.4.0",
+            "org.junit.platform:junit-platform-launcher:1.4.0"
+    ]
+
+    minutest = [
+            junit5 +
+                    "dev.minutest:minutest:1.2.0"
+    ]
+
+    monitoringSupport =
+            loggingSupport + kotlinReflect
+
+    postgres = [
+            libraries["hikaricp"],
+            libraries["jooq"],
+            libraries["postgresql"]
+    ]
+
+    rabbitmq = [
+            libraries["rabbitmq-client"]
+    ]
+
+    redis = [
+            libraries["redis"],
+            "io.netty:netty-all:4.1.13.Final",
+            "io.reactivex:rxjava:1.2.10"
+    ]
+
+    testingSupport = [
+            "org.hamcrest:hamcrest-core:1.3",
+            "org.hamcrest:hamcrest-library:1.3",
+            libraries["hamkrest"],
+            libraries["http4k-testing-hamkrest"],
+            libraries["javax.json"],
+            libraries["jmock"],
+            libraries["jmock-junit"],
+            libraries["junit"],
+            libraries["okeydoke"],
+            libraries["snodge"]
+    ]
+
+    httpServer = http4k + jettyServer + [
+            libraries["konfig"]
+    ]
+
+    handlebars = [
+            "com.github.jknack:handlebars:4.1.2",
+            "com.github.jknack:handlebars-jackson2:4.1.2"
+    ]
+}

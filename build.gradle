@@ -1,21 +1,58 @@
-plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.3.61'
+buildscript {
+    apply from: rootProject.file("gradle/dependencies.gradle")
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    }
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+plugins {
+    id "idea"
+}
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.3.31'
+}
 
 repositories {
     mavenCentral()
+    jcenter()
 }
+
+idea {
+    project {
+        jdkName = "${jvmVersion}"
+        languageLevel = "${jvmVersion}"
+    }
+}
+
+allprojects {
+    buildDir = "target"
+}
+
+apply from: rootProject.file("gradle/application.gradle")
+apply from: rootProject.file("gradle/idea.gradle")
+apply from: rootProject.file("gradle/kotlin.gradle")
+apply from: rootProject.file("gradle/dependencies.gradle")
+
+group 'com.shoppingcart'
+project.archivesBaseName = 'shoppingCart'
+project.applicationName = 'shoppingCart'
+
+mainClassName = "com.springernature.cnf.ApplicationKt"
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-}
-
-compileKotlin {
-    kotlinOptions.jvmTarget = "1.8"
-}
-compileTestKotlin {
-    kotlinOptions.jvmTarget = "1.8"
+    compile http4k
+    compile libraries["konfig"]
+    testCompile testingSupport
+    compile libraries["kotlin-reflect"]
+    compile libraries["guava"]
+    compile libraries["jackson"]
+    compile libraries["jsoup"]
+    compile loggingSupport
+    compile group: 'com.zaxxer', name: 'HikariCP', version: '3.3.0'
+    apply from: file('gradle/buildInfo.gradle')
 }
