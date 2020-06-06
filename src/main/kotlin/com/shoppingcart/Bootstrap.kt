@@ -20,8 +20,9 @@ import java.net.URI
 import java.time.Duration
 import java.time.temporal.ChronoUnit
 
-class Bootstrap(val logger: Logger = Logging("shoppingCart")) {
+class Bootstrap(private val logger: Logger = Logging("shoppingCart")) {
     val configuration: Configuration = EnvironmentVariables().overriding(defaultConfig())
+
     fun createHttp4kServer(app : HttpHandler, port : Int) : Http4kServer {
         val appAnatomy = AppAnatomyHttp4kHandlers.kroutons()
         val loggingFilter = IncomingRequestLoggingFilter(logger)
