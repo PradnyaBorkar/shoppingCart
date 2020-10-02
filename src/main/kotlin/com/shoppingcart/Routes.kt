@@ -5,4 +5,5 @@ import com.natpryce.krouton.root
 
 object Routes {
     val fetchAll = root + "products"
+    val add = root + "add"
 }
